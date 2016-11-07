@@ -6,4 +6,7 @@ node {
   stage ('Build') {
    sh 'docker build -t go/lang-backend ./build-go-backend'
   }
+  stage ('CleanUp') {
+   sh 'rm -r ./build-go-backend'
+  }
 }
