@@ -11,6 +11,9 @@ node {
    sh 'docker rm fhws_backend'
    sh 'docker run --name=fhws_backend -d -p 8083:8083 go/lang-backend'
   }
+  stage('TestDocker') {
+   sh 'docker exec -i fhws_backend go test -v'
+  }
   stage ('CleanUp') {
    sh 'rm -r ./build-go-backend'
   }
